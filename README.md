@@ -35,7 +35,7 @@ cd transfer_service
 ```bash
 docker-compose up migrate
 ```
-### 3. Configure env, by adding below values
+### 3. Create .env file and Configure it by adding below values
 ```bash
 DATABASE_URL=postgres://root:root@localhost:5432/transfer_service?sslmode=disable
 PORT=8100
