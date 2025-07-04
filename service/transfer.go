@@ -16,7 +16,7 @@ type transferService struct {
 	repo repository.ITransferRepo
 }
 
-func NewTransferService(db *sql.DB) ITransferService {
+func TransferService(db *sql.DB) ITransferService {
 	return &transferService{db: db, repo: repository.NewPostgresTransferRepo()}
 }
 

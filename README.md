@@ -35,5 +35,16 @@ cd transfer_service
 ```bash
 docker-compose up migrate
 ```
+### 3. Configure env, by adding below values
+```bash
+DATABASE_URL=postgres://root:root@localhost:5432/transfer_service?sslmode=disable
+PORT=8100
+```
+#### Note: Ensure that you provide your PostgreSQL credentials in the .env file. If you're using the provided docker-compose setup, the default username and password are both root.
 
+### 4. Run application using ()
+```bash
+go run cmd/main.go
+```
+#### Note: The default server port is set to 8080. You can change this value in the .env file to match your machine or deployment environment. Make sure the selected port is not in use by another application.
 

@@ -12,7 +12,7 @@ func ParsePositiveDecimal(s string) (*big.Float, error) {
 		return nil, fmt.Errorf("invalid decimal: %w", err)
 	}
 	if f.Cmp(big.NewFloat(0)) <= 0 {
-		return nil, fmt.Errorf("value must be positive")
+		return nil, fmt.Errorf("amount must be positive")
 	}
 	return f, nil
 }
@@ -24,7 +24,7 @@ func ParseNonNegativeDecimal(s string) (*big.Float, error) {
 		return nil, fmt.Errorf("invalid decimal: %w", err)
 	}
 	if f.Cmp(big.NewFloat(0)) < 0 {
-		return nil, fmt.Errorf("value must be non‑negative")
+		return nil, fmt.Errorf("amount must be positive")
 	}
 	return f, nil
 }
