@@ -17,7 +17,7 @@ func (r *pgTransferRepo) CreateAccount(ctx context.Context, db IDbtx, id int64, 
 	 // Check if account already exists
 	 _, err := r.GetAccount(ctx, db, id)
 	 if err == nil {
-		 return errors.New("duplicate entry")
+		 return ErrDupData
 	 }
 	 if err != ErrNoData {
 		 // Unexpected error from GetAccount

@@ -18,7 +18,7 @@ func RegisterRouters(db *sql.DB) http.Handler {
 	}
 
 	transferService := service.TransferService(db)
-	h := handler.NewHandler(transferService)
+	h := handler.TransferHandler(transferService)
 
 	r := chi.NewRouter()
 	r.Post("/accounts", h.CreateAccount)

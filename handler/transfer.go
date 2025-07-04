@@ -13,7 +13,7 @@ type Handler struct {
 	transferService service.ITransferService
 }
 
-func NewHandler(s service.ITransferService) *Handler {
+func TransferHandler(s service.ITransferService) *Handler {
 	return &Handler{transferService: s}
 }
 

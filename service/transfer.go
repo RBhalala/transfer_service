@@ -21,8 +21,8 @@ func TransferService(db *sql.DB) ITransferService {
 }
 
 
-func (s *transferService) CreateAccount(ctx context.Context, id int64, initial string) error {
-	bal, err := repository.ParseNonNegativeDecimal(initial)
+func (s *transferService) CreateAccount(ctx context.Context, id int64, initialBalance string) error {
+	bal, err := repository.ParseNonNegativeDecimal(initialBalance)
 	if err != nil {
 		return err
 	}
