@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: transfer_service
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./migrations:/migrations
+
+  migrate:
+    image: postgres:15
+    depends_on:
+      - db
+    environment:
+      PGPASSWORD: root
+    volumes:
+      - ./migrations:/migrations
+    entrypoint: ["sh", "-c", "until pg_isready -h db -p 5432; do echo waiting for db; sleep 2; done; psql -h db -U root -d transfer_service -f /migrations/001_create_tables.sql"]
+
+volumes:
+  pgdata:
